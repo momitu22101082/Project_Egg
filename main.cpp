@@ -40,7 +40,7 @@ int perkEffectTimer = 0;
 
 // Chicken Movement
 float chX[4] = {-60, 20, -30, 50};
-float chDir[4] = {0.5, -0.7, 0.9, -0.4};
+float chDir[4] = {0.65f, -0.45f, 0.85f, -0.55f}; // Diversified chicken speeds for added difficulty
 
 struct Egg {
     float x, y;
