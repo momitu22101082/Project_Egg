@@ -29,6 +29,7 @@ State currentState = MENU;
 float basketX = 0.0f;
 float basketWidth = 22.0f;
 int score = 0, highScore = 0, lives = 3, remainingTime = 120;
+
 bool isPaused = false;
 
 // Physics Variables
@@ -90,6 +91,21 @@ void drawCircle(float x, float y, float rx, float ry) {
     }
     glEnd();
 }
+
+void drawHeart(float x, float y, float r) {
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < 360; i += 5) {
+        float rad = i * 0.01745f;
+        // Mathematical formula for a smooth 2D Heart shape
+        float hx = 16 * sin(rad) * sin(rad) * sin(rad);
+        float hy = 13 * cos(rad) - 5 * cos(2 * rad) - 2 * cos(3 * rad) - cos(4 * rad);
+
+        // Scale down with radius 'r' and position at (x, y)
+        glVertex2f(x + (hx * r * 0.18f), y + (hy * r * 0.18f));
+    }
+    glEnd();
+}
+
 
 void drawChicken(float x, float y) {
     // Body
@@ -284,9 +300,19 @@ glRectf(-100, -100, 100, -85);
         ss << "Score: " << score << "  Best: " << highScore; drawText(-95, 92, ss.str());
         st << "Time: " << remainingTime << "s"; drawText(70, 92, st.str());
 
-        // Health bar
+// HUD Health display
+        if (lives == 1) {
+            glColor3f(1.0f, 0.0f, 0.0f); // Make text bright red when critical
+        } else {
+            glColor3f(0.0f, 0.0f, 0.0f); // Default black text
+        }
         drawText(15, 92, "HEALTH:");
-        for(int i=0; i<lives; i++) { glColor3f(1,0,0); drawCircle(38 + (i*7), 93.5, 2.5, 2.5); }
+
+        // Draw Heart-Shaped Lives
+        for(int i = 0; i < lives; i++) {
+            glColor3f(0.9f, 0.1f, 0.1f); // Beautiful heart red color
+            drawHeart(40.0f + (i * 8.0f), 93.5f, 1.2f);
+        }
 
         drawBasket(basketX, basketWidth);
         if (gameEgg.active) drawRealisticEgg(gameEgg.x, gameEgg.y, gameEgg.type);
