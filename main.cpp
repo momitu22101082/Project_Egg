@@ -262,6 +262,13 @@ void display() {
         drawText(-20, -60, "Press 'B' to Go Back");
     } else {
         // Gameplay Background
+        // Sky Color background
+glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
+glClear(GL_COLOR_BUFFER_BIT);
+
+// Draw Green Grass Area at the bottom
+glColor3f(0.2f, 0.8f, 0.2f);
+glRectf(-100, -100, 100, -85);
         if(lives == 1) glClearColor(0.7, 0.3, 0.3, 1); // Danger Warning
         else glClearColor(0.5, 0.8, 1.0, 1);
 
