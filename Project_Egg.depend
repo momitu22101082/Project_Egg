@@ -860,10 +860,10 @@
 1526093414 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\imm.h
 	<_mingw_unicode.h>
 
-1776539580 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1776573867 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
-1776539580 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
+1776573867 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
 	<windows.h>
 	<OpenGL/gl.h>
 	<OpenGL/glu.h>
@@ -896,4 +896,16 @@
 
 1526093416 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\math.h
 	<crtdefs.h>
+
+1778949731 source:c:\users\user\onedrive\documents\github\project_egg\main.cpp
+	<windows.h>
+	<mmsystem.h>
+	<GL/glut.h>
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<stdlib.h>
+	<time.h>
+	<math.h>
 

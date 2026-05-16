@@ -254,20 +254,67 @@ void clockTick(int v) {
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     if (currentState == MENU) {
-        glClearColor(0.08, 0.1, 0.15, 1);
-        glColor3f(1, 1, 0.5);
-        drawText(-35, 40, "CATCH THE EGGS: DELUXE", GLUT_BITMAP_TIMES_ROMAN_24);
-        glColor3f(1, 1, 1);
-        drawText(-22, 10, "Press 'S' to Start Game");
-        drawText(-22, -5, "Press 'H' for Help");
-        drawText(-22, -20, "Press 'Q' to Quit");
-        glColor3f(0.5, 0.8, 1);
-        drawText(-25, -60, "Made by - Momitu & Labony");
+
+        // Deep midnight blue background
+
+        glClearColor(0.05f, 0.08f, 0.12f, 1.0f);
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+
+        // Beautiful centered golden title
+
+        glColor3f(1.0f, 0.85f, 0.2f);
+
+        drawText(-46, 45, "CATCH THE EGGS - NEW EDITION", GLUT_BITMAP_TIMES_ROMAN_24);
+
+
+
+        // Decorative separation line
+
+        glColor3f(0.3f, 0.4f, 0.5f);
+
+        drawText(-50, 35, "================================================");
+
+
+
+        // Arcade styled interactive text visuals
+
+        glColor3f(0.9f, 0.9f, 0.9f);
+
+        drawText(-26, 12, "[ S ]   START GAME");
+
+        drawText(-26, -3, "[ H ]   HOW TO PLAY");
+
+        drawText(-26, -18, "[ Q ]   QUIT DESKTOP");
+
+
+
+        // Polished Author Credits at the bottom
+
+        glColor3f(0.4f, 0.7f, 1.0f);
+
+        drawText(-30, -65, "Created by : Momitu & Labony");
+
+
+
+        // High Score banner
+
         if(highScore > 0) {
-            std::stringstream hs; hs << "High Score: " << highScore;
-            glColor3f(1, 0.8, 0); drawText(-15, -40, hs.str());
+
+            std::stringstream hs; hs << "★ BEST SCORE : " << highScore << " ★";
+
+            glColor3f(1.0f, 0.6f, 0.0f);
+
+            drawText(-23, -42, hs.str());
+
         }
-    } else if (currentState == HELP) {
+
+    }
+
+
+    else if (currentState == HELP) {
         glClearColor(0.1, 0.1, 0.1, 1);
         glColor3f(1, 1, 1);
         drawText(-30, 60, "--- HOW TO PLAY ---", GLUT_BITMAP_TIMES_ROMAN_24);
